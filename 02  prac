@@ -1,0 +1,48 @@
+To accommodate the backup agent tool's specifications, the system admin team at xFusionCorp Industries requires the creation of a user with a non-interactive shell. Here's your task:
+
+
+
+Create a user named anita with a non-interactive shell on App Server 2.
+
+
+
+
+
+Exactly — you're spot on 🔐
+
+In real-world usage:
+
+- **`hostname.com`** is just a placeholder — like saying "example.com" or "yourserver.com" in tutorials.
+- You replace it with the **actual domain name or IP address** of the server you're connecting to.
+- And yes, you use your **real private key** to authenticate securely.
+
+---
+
+## 🧪 Real vs. Example
+
+| Tutorial Example                  | Real-World Equivalent                          |
+|----------------------------------|------------------------------------------------|
+| `ssh user@hostname.com`          | `ssh devops@192.168.1.10` or `ssh admin@prod.mycompany.com` |
+| `~/.ssh/id_rsa`                  | Your actual private key file (securely stored) |
+| `hostname.com`                   | Real server IP or DNS name                    |
+
+---
+
+## 🔐 Real SSH Login Example
+
+Let’s say you have a server at `staging.mycompany.com` and your private key is `~/.ssh/id_rsa_devops`. You’d log in like this:
+
+```bash
+ssh -i ~/.ssh/id_rsa_devops devops@staging.mycompany.com
+```
+
+No passwords. Just cryptographic trust between your private key and the server’s authorized public key.
+
+---
+
+So yes — in real life, you use:
+- A **real hostname or IP**
+- A **real private key**
+- And the server must have your **public key** installed
+
+https://engineer.kodekloud.com/task?id=680216e85500bdf7ab9a7af8&status=start
