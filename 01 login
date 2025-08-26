@@ -215,4 +215,44 @@ To accommodate the backup agent tool's specifications, the system admin team at 
 
 Create a user named anita with a non-interactive shell on App Server 2.
 
-Note: You can find the infrastructure details by clicking on the Details of all Users and Servers button on the top-right section of the page.
+NExactly — that's the idea! When you generate an SSH key pair, you keep the **private key** safe on your own machine, and you share the **public key** with the system administrator (or DevOps team). They then **copy your public key into the server** to grant you access.
+
+---
+
+## 🔐 What the Admin Actually Does
+
+They place your public key into this file on the server:
+```bash
+/home/yourusername/.ssh/authorized_keys
+```
+
+This file acts like a **trusted guest list** — anyone with a matching private key is allowed in.
+
+---
+
+## 🧪 Example
+
+Let’s say you send your public key:
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA7... yourname@yourmachine
+```
+
+The admin runs:
+```bash
+mkdir -p /home/yourusername/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA7... yourname@yourmachine" >> /home/yourusername/.ssh/authorized_keys
+chown -R yourusername:yourusername /home/yourusername/.ssh
+chmod 700 /home/yourusername/.ssh
+chmod 600 /home/yourusername/.ssh/authorized_keys
+```
+
+Now you can SSH into the server like this:
+```bash
+ssh -i ~/.ssh/id_rsa yourusername@server_ip
+```
+
+No password needed — just your private key.
+
+---
+
+This is how secure, passwordless access works in real-world DevOps. Want to try this on a cloud VM or simulate it locally? I can walk you through it.
