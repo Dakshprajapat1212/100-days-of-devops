@@ -209,4 +209,10 @@ If everything is correct, you’ll log in without a password.
 
 ---
 
-This is exactly how DevOps engineers onboard users securely to cloud VMs. Want me to turn this into a reusable script or automation with Ansible or cloud-init next?
+To accommodate the backup agent tool's specifications, the system admin team at xFusionCorp Industries requires the creation of a user with a non-interactive shell. Here's your task:
+
+
+
+Create a user named anita with a non-interactive shell on App Server 2.
+
+Note: You can find the infrastructure details by clicking on the Details of all Users and Servers button on the top-right section of the page.
